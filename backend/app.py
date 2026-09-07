@@ -4,7 +4,7 @@ Aplicación Principal Flask estructurada en Blueprints.
 """
 
 import os
-from flask import Flask
+from flask import Flask, jsonify
 from flask_login import LoginManager
 from backend.models import db, User
 from backend.routes.auth_bp import auth_bp
@@ -40,6 +40,10 @@ def create_app():
     app.register_blueprint(auth_bp)
     app.register_blueprint(access_bp)
     app.register_blueprint(admin_bp)
+
+    @app.get('/api/health')
+    def health_check():
+        return jsonify({'status': 'ok'})
 
     with app.app_context():
         db.create_all()
