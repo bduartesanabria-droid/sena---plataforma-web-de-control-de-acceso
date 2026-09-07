@@ -1,0 +1,10 @@
+{
+  "name": "SENA - Plataforma Web de Control de Acceso",
+  "description": "Sistema institucional de control y gestión de acceso para sede SENA con escaneo de carnet Code128, validación de estado, registro de visitantes y administración de carnets.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
