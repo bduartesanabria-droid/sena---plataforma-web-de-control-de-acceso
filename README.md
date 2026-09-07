@@ -58,6 +58,19 @@ El archivo `render.yaml` crea dos servicios:
 3. En el servicio API configura `DATABASE_URL`. Render genera `SECRET_KEY` automaticamente desde el blueprint.
 4. Ejecuta el esquema de Supabase y verifica `https://TU-API.onrender.com/api/health`, que debe responder `{"status":"ok"}`.
 
+## Despliegue con Docker Compose en Coolify
+
+Selecciona **Docker Compose** como tipo de aplicacion y usa el archivo `docker-compose.yml`. Configura en Coolify estas variables:
+
+```env
+VITE_SUPABASE_URL=https://TU-PROYECTO.supabase.co
+VITE_SUPABASE_ANON_KEY=TU_CLAVE_ANON_O_PUBLISHABLE
+SECRET_KEY=UNA_CLAVE_SECRETA_LARGA
+DATABASE_URL=postgresql://postgres:CONTRASENA@db.TU-PROYECTO.supabase.co:5432/postgres
+```
+
+Publica el servicio `frontend` en el dominio web y el servicio `backend` solo si necesitas exponer la API. El frontend se sirve por el puerto interno `80`; el backend escucha en el puerto `5000`.
+
 ## Comandos de verificacion
 
 ```bash
